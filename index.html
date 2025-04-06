@@ -11,6 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/js/bootstrap.min.js" integrity="sha384-Re460s1NeyAhufAM5JwfIGWosokaQ7CH15ti6W5Y4wC/m4eJ5opJ2ivohxVM05Wd" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
   </head>
   <style>
     html {
@@ -33,8 +34,11 @@
       min-height: 100vh;
     }
 
-    footer{
+    footer {
       background-color: rgba(40, 40, 40);
+      && a{
+        text-decoration: none;
+      }
     }
 
     section {
@@ -50,7 +54,7 @@
       z-index: 999;
       box-shadow: 0 2px 5px rgba(0,0,0,0.4);
       transition: background-color 0.9s ease;
-      font-size: 16pt;
+      font-size: 14pt;
     }
 
     #menuSticky a {
@@ -143,6 +147,11 @@
       border: solid;
       border-color: gold;
     }
+
+    .flip-horizontal{
+      transform: scaleX(-1) !important;
+      display: inline-block;
+    }
   </style>
   <body>
     <a href="https://chat.whatsapp.com/LD5F1v8ODpPAJA9XKPakQC" class="btn btn-success whatsapp-fixo" target="_blank">
@@ -158,11 +167,13 @@
            </div>
         </div>
     </header>
-    <nav id="menuSticky">
-      <a href="#best">OS MELHORES</a>
-      <a href="#apps">APPS</a>
-      <a href="#contato">PARTICIPE!</a>
+
+    <nav class="px-5 d-flex justify-content-center" id="menuSticky">
+      <a class="col-4" href="#best">DESTAQUES</a>
+      <a class="col-4" href="#apps">APPS</a>
+      <a class="col-4" href="#contato">WHATSAPP</a>
     </nav>
+
     <main>
       <section id="best">
         <p class="h3 text-center fw-bold" style="color: gold;">OS MELHORES</p>
@@ -776,12 +787,38 @@
       </section>
     </main>
 
-    <footer class="text-center text-white p-5">
-      <div id="redes">
-        <i class="fa-solid fa-envelope"></i>
-        <i class="bi bi-instagram"></i>
+    <footer class="text-center text-white">
+      <div class="row">
+        <div class="col-6 d-flex flex-column align-items-center justify-content-center" id="termos">
+          <a href="">Termos</a>
+          <a href="">Políticas</a>
+        </div>
+        <div class="col-6 d-flex align-items-center justify-content-center gap-3 " id="redes">
+          <a href="mailto:pactodeourobet@gmail.com">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+
+          <a href="#" target="_blank" rel="noopener noreferrer">
+            <i class="bi bi-instagram"></i>
+          </a>
+          
+          <a href="#" target="_blank" rel="noopener noreferrer">
+            <i class="bi bi-facebook">
+          </a></i>
+          
+          <a href="#" target="_blank" rel="noopener noreferrer">
+            <i class="bi bi-youtube">
+          </a></i>
+          
+          <a href="#" target="_blank" rel="noopener noreferrer">
+            <i class="bi bi-camera-reels flip-horizontal">
+            </i>
+          </a>
       </div>
-      Copyright © 2025 PACTO DE OURO.bet – Todos os direitos reservados.
+      <div class="row d-flex justify-content-center text-center">
+        Copyright © 2025 PACTO DE OURO.bet – Todos os direitos reservados.
+      </div>
+    </div>
     </footer>
   </body>
 </html>
