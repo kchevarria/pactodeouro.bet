@@ -52,7 +52,7 @@
     }
 
     section {
-      scroll-margin-top: 80px;
+      scroll-margin-top: 80px !important;
     }
 
     #menuSticky {
@@ -173,6 +173,34 @@
       transform: scaleX(-1) !important;
       display: inline-block;
     }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-menu {
+      background-color: #000;
+      border: none;
+      padding: 0;
+      margin: 0;
+      width: 150px;
+      box-sizing: border-box;
+      overflow: hidden; /* isso força os itens a respeitarem o border-radius */
+    }
+
+    .dropdown-item {
+      width: 100%;
+      padding: 10px 16px;
+      color: #fff;
+      white-space: nowrap;
+      background-color: #000;
+      box-sizing: border-box;
+    }
+
+    .dropdown-item:hover {
+      background-color: #333;
+    }
   </style>
   <body>
     <a href="https://chat.whatsapp.com/LD5F1v8ODpPAJA9XKPakQC" class="btn btn-success whatsapp-fixo" target="_blank">
@@ -189,10 +217,21 @@
         </div>
     </header>
 
-    <nav class="px-5 d-flex justify-content-center" id="menuSticky">
-      <a class="col-4" href="#best">DESTAQUES</a>
-      <a class="col-4" href="#apps">APPS</a>
-      <a class="col-4" href="#contato">WHATSAPP</a>
+    <nav class="px-5 d-flex justify-content-center flex-wrap gap-3 align-items-center" id="menuSticky">
+      <a href="#best">DESTAQUES</a>
+    
+      <div class="dropdown">
+        <a class="dropdown-toggle text-decoration-none" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          TOPS
+        </a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#top10">TOP 10</a></li>
+          <li><a class="dropdown-item" href="#top20">TOP 20</a></li>
+          <li><a class="dropdown-item" href="#top30">TOP 30</a></li>
+        </ul>
+      </div>
+    
+      <a href="#contato">WHATSAPP</a>
     </nav>
 
     <main>
