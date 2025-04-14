@@ -1,4 +1,3 @@
-<!doctype html>
 <html lang="pt-br">
   <head>
     <meta charset="utf-8">
@@ -7,8 +6,6 @@
     <link rel="shortcut icon" href="./ouro.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-DQvkBjpPgn7RC31MCQoOeC9TI2kdqa4+BSgNMNj8v77fdC77Kj5zpWFTJaaAoMbC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-YUe2LzesAfftltw+PEaao2tjU/QATaW/rOitAq67e0CT0Zi2VVRL0oC4+gAaeBKu" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/js/bootstrap.min.js" integrity="sha384-Re460s1NeyAhufAM5JwfIGWosokaQ7CH15ti6W5Y4wC/m4eJ5opJ2ivohxVM05Wd" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
@@ -18,14 +15,14 @@
       scroll-behavior: smooth;
     }
 
-    body{
-        background-position: center;
-        background-size: cover;
-        font-family: 'Bebas Neue', sans-serif;
-        overflow-x: hidden;
+    body {
+      background-position: center;
+      background-size: cover;
+      font-family: 'Bebas Neue', sans-serif;
+      overflow-x: hidden;
     }
 
-    #cabecalho{
+    #cabecalho {
       background-color: black;
     }
 
@@ -43,14 +40,15 @@
 
     footer {
       background-color: rgba(40, 40, 40);
-      && a {
-        color: #f2f2f2;
-        margin: 0 15px;
-        text-decoration: none;
-        font-weight: bold;
-        font-size: 14pt;
-        transition: color 0.3s;
-      }
+    }
+
+    footer a {
+      color: #f2f2f2;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14pt;
+      transition: color 0.3s;
     }
 
     section {
@@ -64,7 +62,7 @@
       position: sticky;
       top: 0;
       z-index: 999;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
       transition: background-color 0.9s ease;
       font-size: 14pt;
     }
@@ -81,7 +79,7 @@
       color: gold;
     }
 
-    .link{
+    .link {
       width: 100%;
       height: 100%;
       cursor: pointer;
@@ -89,21 +87,23 @@
       background: transparent;
       overflow: hidden;
       transition: transform 0.3s ease, filter 0.3s ease;
-      && img{
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border: none;
-        border-radius: 17pt;
-        background: black;
-        &&:hover{
-          transform: scale(1.3);
-          filter: brightness(1.2);
-        }
-      }
     }
 
-    .card{
+    .link img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border: none;
+      border-radius: 17pt;
+      background: black;
+    }
+
+    .link:hover img {
+      transform: scale(1.3);
+      filter: brightness(1.2);
+    }
+
+    .card {
       background-color: rgba(255, 255, 255, 0.5);
     }
 
@@ -131,10 +131,11 @@
       justify-content: center;
       animation: pulse-bg 1.5s infinite;
       transition: transform 0.3s ease, filter 0.3s ease;
-      &&:hover{
-          transform: scale(1.3);
-          filter: brightness(1.2);
-        }
+    }
+
+    .whatsapp-fixo:hover {
+      transform: scale(1.3);
+      filter: brightness(1.2);
     }
 
     .whatsapp-fixo i {
@@ -154,21 +155,21 @@
       }
     }
 
-    #contato .card{
-      background-color: rgb(0, 0, 0, 0.9);
+    #contato .card {
+      background-color: rgba(0, 0, 0, 0.9);
       border: solid;
       border-color: gold;
     }
 
-    .container .h1{
-      background-color: rgb(0, 0, 0, 0.7);
+    .container .h1 {
+      background-color: rgba(0, 0, 0, 0.7);
     }
 
-    #best .card.h3{
-      background-color: rgb(0, 0, 0, 0.7);
+    #best .card.h3 {
+      background-color: rgba(0, 0, 0, 0.7);
     }
 
-    .flip-horizontal{
+    .flip-horizontal {
       transform: scaleX(-1) !important;
       display: inline-block;
     }
