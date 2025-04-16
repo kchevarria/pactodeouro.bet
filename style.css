@@ -150,6 +150,9 @@ section {
 
 .container .h1 {
   background-color: rgba(0, 0, 0, 0.7);
+  color: gold;
+  border: solid;
+  border-color: gold;
 }
 
 #best .card.h3 {
