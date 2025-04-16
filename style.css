@@ -95,13 +95,15 @@ section {
 }
 
 .col-custom-5 {
-  width: 20%;
+  margin: 30px 30px 30px 30px;
+  width: 13%;
   background-color: transparent;
 }
 
 @media (max-width: 767.98px) {
   .col-custom-5 {
-    width: 50%;
+    margin: 15px 0 0 0;
+    width: 37%;
   }
 }
 
