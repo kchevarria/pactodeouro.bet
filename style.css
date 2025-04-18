@@ -13,6 +13,12 @@ body {
   background-color: black;
 }
 
+@media (max-width: 768px) {
+  #cabecalho {
+    max-height: 40vh;
+  }
+}
+
 main {
   background-image: url("images/_fundo6.png");
   background-size: cover;
