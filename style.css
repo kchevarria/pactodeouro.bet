@@ -200,3 +200,7 @@ section {
 .dropdown-item:hover {
   background-color: #333;
 }
+
+#termos .modal-content {
+  font-size: 14pt;
+}

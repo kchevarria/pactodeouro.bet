@@ -10,6 +10,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <!-- jQuery (carregado primeiro) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- jQuery Confirm CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.4/jquery-confirm.min.css" integrity="sha512-i3R7zY9RoXAZ7d4Ff4HTffdvGn8E3rihJz8ro+iMJErVJIQhtq2hAkVXLwSwI8iAKbMKf68VvISbMzEl96Jd4Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- jQuery Confirm JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.4/jquery-confirm.min.js" integrity="sha512-zP5W8791v1A6FToy+viyoyUUyjCzx+4K8XZCKzW28AnCoepPNIXecxh9mvGuy3Rt78OzEsU+VCvcObwAMvBAww==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   </head>
   <body>
     <!-- <a href="" class="btn btn-success whatsapp-fixo" target="_blank">
@@ -27,7 +35,6 @@
     </header>
 
     <nav class="px-5 d-flex justify-content-center flex-wrap gap-3 align-items-center" id="menuSticky">
-      
       <div class="dropdown">
         <a class="dropdown-toggle text-decoration-none" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           TOPS
@@ -55,7 +62,6 @@
         <div id="carouselTop3" class="mb-5 carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
           <div class="carousel-inner">
             <div class="carousel-item active">
-              
               <div class="d-flex justify-content-center flex-wrap gap-3">
                 <div class="card">
                   <img src="images/card1.png" alt="">
@@ -77,6 +83,7 @@
               </div>
             </div>
           </div>
+
           <!-- Botões de navegação -->
           <button class="carousel-control-prev" type="button" data-bs-target="#carouselTop3" data-bs-slide="prev">
             <span class="carousel-control-prev-icon bg-dark rounded-circle p-3" aria-hidden="true"></span>
@@ -784,11 +791,11 @@
 
     <footer class="text-center text-white">
       <div class="row py-3">
-        <div class="col-4 d-flex align-items-center justify-content-center" id="termos">
+        <div class="col-4 d-flex align-items-center justify-content-center">
           <p class="m-0">
-            <a href="#">Termos</a> <br>
-            & <br>
-            <a href="#">Políticas</a>
+            <a type="button" class="" data-bs-toggle="modal" data-bs-target="#termos">
+              Termos & Políticas
+            </a>
           </p>
         </div>
 
@@ -819,5 +826,78 @@
         Copyright © 2025 PACTO DE OURO.bet – Todos os direitos reservados.
       </div>
     </footer>
+    <div class="modal fade" id="termos" tabindex="-1" aria-labelledby="termosLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content bg-dark text-white">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="termosLabel">TERMOS & POLÍTICAS</h1>
+            <button type="button" class="bg-danger btn-close custom-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body text-start small" style="line-height: 1.6;">
+            <ol class="ps-3">
+              <li><strong>Aceitação dos Termos:</strong></li>
+              <p>Ao utilizar o site <strong>pactodeouro.bet</strong>, você declara que leu, entendeu e concorda com estes termos. Caso não concorde, interrompa o uso imediatamente.</p>
+              
+              <li><strong>Objetivo do Site:</strong></li>
+              <p>Este site tem como finalidade oferecer <strong>conteúdos e serviços voltados a apostas esportivas</strong>, com caráter exclusivamente informativo e de entretenimento.</p>
+              
+              <li><strong>Requisitos de Acesso:</strong></li> 
+              <p>
+                O acesso é permitido apenas a <strong>maiores de 18 anos</strong>. É responsabilidade do usuário garantir que o uso seja legal na sua jurisdição.
+              </p>
+              
+              <li><strong>Conduta do Usuário:</strong></li>
+              <p>
+                Você se compromete a <strong>não utilizar bots, scripts ou práticas fraudulentas</strong>. É proibido violar leis, divulgar conteúdos ofensivos ou comprometer a integridade do sistema.
+              </p>
+              
+              <li><strong>Isenção de Responsabilidade:</strong></li>
+              <p>
+                O <strong>PACTO DE OURO.bet</strong> não se responsabiliza por perdas financeiras ou decisões tomadas com base no conteúdo do site. As apostas são de <strong>total responsabilidade do usuário</strong>.
+              </p>
+              
+              <li><strong>Direitos Autorais:</strong></li>
+              <p>
+                Todos os textos, imagens, marcas e elementos visuais são de <strong>propriedade exclusiva</strong> do site ou de seus licenciadores. É proibida a reprodução sem autorização.
+              </p>
+              
+              <li><strong>Privacidade e Dados:</strong></li>
+              <p>
+                Coletamos dados como <strong>IP, e-mail e dados de navegação</strong> para fins de melhoria do serviço e segurança. Nenhuma informação é compartilhada com terceiros sem consentimento, salvo por obrigação legal.
+              </p>
+              
+              <li><strong>Segurança:</strong></li>
+              <p>
+                Aplicamos medidas técnicas para proteger seus dados, mas <strong>nenhuma transmissão online é 100% segura</strong>. Utilize o site por sua conta e risco.
+              </p>
+              
+              <li><strong>Atualizações:</strong></li>
+              <p>
+                Este documento poderá ser alterado a qualquer momento. Recomendamos <strong>consultar esta página regularmente</strong> para estar ciente de possíveis mudanças.
+              </p>
+              
+              <li><strong>Contato:</strong></li>
+              <p>
+                Para dúvidas ou solicitações, entre em contato através do e-mail: 
+                <a href="mailto:pactodeourobet@gmail.com" class="text-info">pactodeourobet@gmail.com</a>
+              </p>
+            </ol>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" onclick="discordar()">SAIR</button>
+            <button type="button" class="btn btn-success" data-bs-dismiss="modal">EU CONCORDO</button>
+          </div>
+        </div>
+      </div>
+    </div>    
   </body>
+  <script>
+    $(document).ready(function(){
+      $("#termos").modal("show");
+    })
+
+    function discordar(){
+      window.location.href = 'https://www.google.com';
+    }
+  </script>
 </html>
