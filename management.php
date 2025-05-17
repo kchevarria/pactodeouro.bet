@@ -89,10 +89,22 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <input type="text" name="" id="" class="form-control">
-                    <input type="number" name="" id="" class="form-control">
-                    <input type="text" name="" id="" class="form-control">
-                    <input type="file" name="" id="" class="form-control">
+                    <div>
+                        <label for="nome">Nome:</label>
+                        <input type="text" name="" id="nome" class="form-control">
+                    </div>
+                    <div>
+                        <label for="ordem">Ordem:</label>
+                        <input type="number" name="" id="ordem" class="form-control">
+                    </div>
+                    <div>
+                        <label for="link">Link:</label>
+                        <input type="text" name="" id="link" class="form-control">
+                    </div>
+                    <div>
+                        <label for="logo">Logo:</label>
+                        <input type="file" name="" id="logo" class="form-control">
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Descartar</button>
