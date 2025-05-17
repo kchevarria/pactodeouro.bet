@@ -10,7 +10,6 @@ if (!isset($_POST['action'])) {
 require_once 'connection.php'; // Inclui a conexão ao banco
 
 switch ($_POST['action']) {
-
     case 'listarPlataformas':
         listarPlataformas($conn);
         break;
@@ -22,19 +21,20 @@ switch ($_POST['action']) {
 
 // Funções
 function listarPlataformas($conn) {
-    $sql = "SELECT id, nome FROM plataformas ORDER BY nome";
-    $result = $conn->query($sql);
+    // $sql = "SELECT id, nome FROM plataformas ORDER BY nome";
+    // $result = $conn->query($sql);
 
-    if (!$result) {
-        echo json_encode(['status' => 'erro', 'mensagem' => 'Erro na consulta.']);
-        return;
-    }
+    // if (!$result) {
+    //     echo json_encode(['status' => 'erro', 'mensagem' => 'Erro na consulta.']);
+    //     return;
+    // }
 
-    $plataformas = [];
-    while ($row = $result->fetch_assoc()) {
-        $plataformas[] = $row;
-    }
+    // $plataformas = [];
+    // while ($row = $result->fetch_assoc()) {
+    //     $plataformas[] = $row;
+    // }
 
-    echo json_encode(['status' => 'ok', 'dados' => $plataformas]);
+    // echo json_encode(['status' => 'ok', 'dados' => $plataformas]);
+    echo json_encode("foi");
 }
 ?>
