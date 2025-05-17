@@ -73,7 +73,7 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
             </div>
             <div class="card-footer d-flex justify-content-end align-items-center">
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cadastroPlataforma">
                     <i class="bi bi-plus-lg pe-2"></i> Nova plataforma
                 </button>
             </div>
