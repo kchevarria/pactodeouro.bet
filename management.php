@@ -29,10 +29,10 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
 
 <body class="d-flex flex-column">
     <div class="d-flex justify-content-end m-3">
-        <span class="me-3 text-secondary" onclick="logout()">
-            Olá Fulano
+        <span id="user" class="me-3 text-secondary">
+            Olá <?php echo $_SESSION['usuario_nome'] ?>
         </span>
-        <button class="btn btn-sm btn-danger">
+        <button class="btn btn-sm btn-danger" onclick="logout()">
             Sair
         </button>
     </div>
@@ -164,6 +164,7 @@ if (isset($_POST['criar_usuario'])) {
 
         $(document).ready(function() {
             gerenciarPlataformas();
+            infoUser();
         })
     </script>
 </body>
