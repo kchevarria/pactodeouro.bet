@@ -134,7 +134,15 @@ if (isset($_POST['criar_usuario'])) {
                 dataType: 'json',
                 success: function(retorno) {
                     console.log(retorno);
-                    $("#plataformas").html(retorno.dados);
+                    switch (retorno.success) {
+                        case 1:
+                            $("#plataformas").html(retorno.dados);
+                            break;
+                        default:
+                            $("#plataformas").html(retorno.msg);
+                            break;
+                    }
+                    // $("#plataformas").html(retorno.dados);
                 },
                 error: function(xhr, status, error) {
                     console.error("Erro AJAX:", xhr.responseText || error);

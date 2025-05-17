@@ -71,7 +71,7 @@ function gerenciarPlataformas($conn) {
         $plataformas[] = $row;
     }
 
-    $retorno['success'] = 0;
+    $retorno['success'] = 1;
     $retorno['msg'] = "Dados obtidos.";
     $retorno['dados'] = $plataformas;
     // echo json_encode(['status' => 'ok', 'dados' => $plataformas]);
