@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 header('Content-Type: application/json');
 
 // Verifica se veio a ação via POST
@@ -21,6 +23,7 @@ switch ($_POST['action']) {
 
 // Funções
 function listarPlataformas($conn) {
+    echo json_encode(['status' => 'ok', 'mensagem' => 'Função chamada com sucesso']);
     // $sql = "SELECT id, nome FROM plataformas ORDER BY nome";
     // $result = $conn->query($sql);
 
@@ -35,6 +38,6 @@ function listarPlataformas($conn) {
     // }
 
     // echo json_encode(['status' => 'ok', 'dados' => $plataformas]);
-    echo json_encode("foi");
+    // echo json_encode("foi");
 }
 ?>
