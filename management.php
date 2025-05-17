@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-// Protege a página: só usuários autenticados podem acessar
 if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
     header("Location: login.html");
     exit;

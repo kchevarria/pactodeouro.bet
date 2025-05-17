@@ -18,6 +18,7 @@ $resultado = $stmt->get_result();
 
 if ($row = $resultado->fetch_assoc()) {
     if (password_verify($senha, $row['senha_hash'])) {
+        $_SESSION['logado'] = true;
         $_SESSION['usuario_id'] = $row['id'];
         $_SESSION['usuario_nome'] = $usuario;
         echo json_encode(['status' => 'ok', 'mensagem' => 'Login realizado com sucesso']);
