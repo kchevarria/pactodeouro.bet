@@ -8,6 +8,7 @@
 </head>
 
 <body>
+
     <h2>Login</h2>
     <form id="formLogin">
         <label for="usuario">Usuário:</label><br />
@@ -27,21 +28,20 @@
                 data: $(this).serialize(),
                 dataType: 'json',
                 success: function (res) {
-                    console.log("Resposta do servidor:", res);
                     if (res.status === 'ok') {
+                        // Redireciona após login
                         window.location.href = 'management.php';
                     } else {
-                        alert(res.mensagem);
+                        alert(res.mensagem || 'Erro no login');
                     }
                 },
-                error: function (xhr, status, error) {
-                    console.error("Erro AJAX:", error);
-                    alert('Erro na comunicação com o servidor.');
+                error: function () {
+                    alert('Erro na comunicação com o servidor');
                 }
             });
         });
-
     </script>
+
 </body>
 
 </html>
