@@ -14,6 +14,7 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
 <head>
     <meta charset="UTF-8">
     <title>Área de Gerenciamento</title>
+    <link rel="shortcut icon" href="./images/ouro.png" type="image/x-icon">
     <style>
         body { font-family: Arial, sans-serif; margin: 2rem; }
         .logout-btn {
