@@ -1,0 +1,5 @@
+# Impede acesso direto a arquivos PHP do navegador
+<FilesMatch "\.(php)$">
+    Order deny,allow
+    Deny from all
+</FilesMatch>
