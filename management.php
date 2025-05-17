@@ -8,19 +8,8 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
 
 // require_once 'controller/connection.php'; // Descomente se precisar de conexão com o banco
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Área de Gerenciamento</title>
-    <link rel="shortcut icon" href="./images/ouro.png" type="image/x-icon">
-
-    <!-- BOOTSTRAP -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-DQvkBjpPgn7RC31MCQoOeC9TI2kdqa4+BSgNMNj8v77fdC77Kj5zpWFTJaaAoMbC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-YUe2LzesAfftltw+PEaao2tjU/QATaW/rOitAq67e0CT0Zi2VVRL0oC4+gAaeBKu" crossorigin="anonymous"></script>
-</head>
 
 <head>
     <meta charset="UTF-8">
@@ -84,6 +73,29 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
             </div>
         </div>
     </div>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Launch demo modal
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- 
 <h3>Criar novo usuário (uso temporário)</h3>
 <form method="POST">
@@ -121,7 +133,7 @@ if (isset($_POST['criar_usuario'])) {
 -->
     <script>
         function logout() {
-            window.location.href = ".controller/logout.php";
+            window.location.href = "./controller/logout.php";
         }
 
         function gerenciarPlataformas() {
