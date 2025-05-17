@@ -3,3 +3,7 @@
     Order deny,allow
     Deny from all
 </FilesMatch>
+
+<Files "backend.php">
+    Allow from all
+</Files>
