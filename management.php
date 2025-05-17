@@ -24,9 +24,13 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
     <meta charset="UTF-8">
     <title>Área de Gerenciamento</title>
     <link rel="shortcut icon" href="./images/ouro.png" type="image/x-icon">
+
     <!-- BOOTSTRAP -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-DQvkBjpPgn7RC31MCQoOeC9TI2kdqa4+BSgNMNj8v77fdC77Kj5zpWFTJaaAoMbC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-YUe2LzesAfftltw+PEaao2tjU/QATaW/rOitAq67e0CT0Zi2VVRL0oC4+gAaeBKu" crossorigin="anonymous"></script>
+
+    <!-- BOOTSTRAP ICONS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 </head>
 <body class="d-flex flex-column">
     <div class="d-flex justify-content-end m-3">
@@ -49,7 +53,7 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
                             <td>top</td>
                             <td>nome</td>
                             <td>link</td>
-                            <td>edição</td>
+                            <td><i class="bi bi-pencil-square"></i></td>
                         </tr>
                         <tr>
                             <td>top</td>
