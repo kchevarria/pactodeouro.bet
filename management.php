@@ -15,8 +15,11 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
     <meta charset="UTF-8">
     <title>Área de Gerenciamento</title>
     <link rel="shortcut icon" href="./images/ouro.png" type="image/x-icon">
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-DQvkBjpPgn7RC31MCQoOeC9TI2kdqa4+BSgNMNj8v77fdC77Kj5zpWFTJaaAoMbC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-YUe2LzesAfftltw+PEaao2tjU/QATaW/rOitAq67e0CT0Zi2VVRL0oC4+gAaeBKu" crossorigin="anonymous"></script>
     <style>
-        body { font-family: Arial, sans-serif; margin: 2rem; }
+        /* body { font-family: Arial, sans-serif; margin: 2rem; }
         .logout-btn {
             display: inline-block;
             margin-bottom: 1rem;
@@ -32,7 +35,7 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
             padding: 1rem;
             background-color: #f4f4f4;
             border-radius: 8px;
-        }
+        } */
     </style>
 </head>
 <body>
