@@ -71,10 +71,10 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
                     </tbody>
                 </table>
             </div>
-            <div class="card-footer">
+            <div class="card-footer d-flex justify-content-end align-items-center">
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Launch demo modal
+                    <i class="bi bi-plus pe-2"></i> Nova plataforma
                 </button>
             </div>
         </div>
