@@ -28,7 +28,7 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
 </head>
 
 <body class="d-flex flex-column">
-    <div class="d-flex justify-content-end m-3">
+    <div class="d-flex justify-content-end align-items-center m-3">
         <span id="user" class="me-3 text-secondary">
             Olá <?php echo $_SESSION['usuario_nome'] ?>
         </span>
