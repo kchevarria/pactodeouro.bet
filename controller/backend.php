@@ -54,6 +54,7 @@ function gerenciarPlataformas($conn) {
         $retorno['success'] = 0;
         $retorno['msg'] = "Erro ao consultar plataformas.";
         // echo json_encode(['status' => 'erro', 'mensagem' => 'Erro ao consultar plataformas.']);
+        echo json_encode($retorno);
         return;
     }
 
@@ -61,6 +62,7 @@ function gerenciarPlataformas($conn) {
         $retorno['success'] = 0;
         $retorno['msg'] = "Não há plataformas cadastradas.";
         // echo json_encode(['status' => 'vazio', 'mensagem' => 'Não há plataformas cadastradas.']);
+        echo json_encode($retorno);
         return;
     }
 
@@ -73,4 +75,5 @@ function gerenciarPlataformas($conn) {
     $retorno['msg'] = "Dados obtidos.";
     $retorno['dados'] = $plataformas;
     // echo json_encode(['status' => 'ok', 'dados' => $plataformas]);
+    echo json_encode($retorno);
 }
