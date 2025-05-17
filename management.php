@@ -169,7 +169,6 @@ if (isset($_POST['criar_usuario'])) {
 
         $(document).ready(function() {
             gerenciarPlataformas();
-            infoUser();
         })
     </script>
 </body>
