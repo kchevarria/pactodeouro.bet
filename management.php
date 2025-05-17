@@ -5,6 +5,42 @@
 //     exit;
 // }
 ?>
+<?php
+require_once 'controller/connection.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['criarUsuario'])) {
+    $usuario = trim($_POST['usuario']);
+    $senha = $_POST['senha'];
+
+    if (empty($usuario) || empty($senha)) {
+        $mensagem = "Usuário e senha são obrigatórios.";
+    } else {
+        $stmt = $conn->prepare("SELECT id FROM usuarios WHERE usuario = ?");
+        $stmt->bind_param("s", $usuario);
+        $stmt->execute();
+        $stmt->store_result();
+
+        if ($stmt->num_rows > 0) {
+            $mensagem = "Usuário já existe.";
+        } else {
+            $stmt->close();
+            $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
+
+            $stmt = $conn->prepare("INSERT INTO usuarios (usuario, senha_hash) VALUES (?, ?)");
+            $stmt->bind_param("ss", $usuario, $senha_hash);
+
+            if ($stmt->execute()) {
+                $mensagem = "Usuário criado com sucesso.";
+            } else {
+                $mensagem = "Erro ao criar usuário.";
+            }
+        }
+
+        $stmt->close();
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
