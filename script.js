@@ -9,6 +9,7 @@ function discordar() {
 
 function listarPlataformas() {
   console.log("listando");
+
   $.ajax({
     url: "controller/backend.php",
     type: 'POST',
@@ -18,6 +19,9 @@ function listarPlataformas() {
     dataType: 'json',
     success: function (retorno) {
       console.log(retorno);
+    },
+    error: function (xhr, status, error) {
+      console.error("Erro AJAX:", xhr.responseText || error);
     }
   });
 }
