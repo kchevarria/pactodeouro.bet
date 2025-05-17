@@ -14,12 +14,55 @@ switch ($_POST['action']) {
     case 'listarPlataformas':
         listarPlataformas($conn);
         break;
-
+    case 'gerenciarPlataformas':
+        gerenciarPlataformas($conn);
+        break;
     default:
         echo json_encode(['status' => 'erro', 'mensagem' => 'Ação inválida.']);
         break;
 }
 
 function listarPlataformas($conn) {
-    echo json_encode(['status' => 'ok', 'mensagem' => 'Função chamada com sucesso']);
+    $sql = "SELECT id, nome, ordem, link, logo FROM plataformas ORDER BY ordem, nome";
+    $result = $conn->query($sql);
+
+    if (!$result) {
+        echo json_encode(['status' => 'erro', 'mensagem' => 'Erro ao consultar plataformas.']);
+        return;
+    }
+
+    if ($result->num_rows === 0) {
+        echo json_encode(['status' => 'vazio', 'mensagem' => 'Não há plataformas cadastradas.']);
+        return;
+    }
+
+    $plataformas = [];
+    while ($row = $result->fetch_assoc()) {
+        $plataformas[] = $row;
+    }
+
+    echo json_encode(['status' => 'ok', 'dados' => $plataformas]);
+}
+
+
+function gerenciarPlataformas($conn) {
+    $sql = "SELECT id, nome, ordem, link, logo FROM plataformas ORDER BY ordem, nome";
+    $result = $conn->query($sql);
+
+    if (!$result) {
+        echo json_encode(['status' => 'erro', 'mensagem' => 'Erro ao consultar plataformas.']);
+        return;
+    }
+
+    if ($result->num_rows === 0) {
+        echo json_encode(['status' => 'vazio', 'mensagem' => 'Não há plataformas cadastradas.']);
+        return;
+    }
+
+    $plataformas = [];
+    while ($row = $result->fetch_assoc()) {
+        $plataformas[] = $row;
+    }
+
+    echo json_encode(['status' => 'ok', 'dados' => $plataformas]);
 }

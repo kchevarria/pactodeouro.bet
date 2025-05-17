@@ -11,6 +11,7 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
 
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <title>Área de Gerenciamento</title>
@@ -20,6 +21,7 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-DQvkBjpPgn7RC31MCQoOeC9TI2kdqa4+BSgNMNj8v77fdC77Kj5zpWFTJaaAoMbC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-YUe2LzesAfftltw+PEaao2tjU/QATaW/rOitAq67e0CT0Zi2VVRL0oC4+gAaeBKu" crossorigin="anonymous"></script>
 </head>
+
 <head>
     <meta charset="UTF-8">
     <title>Área de Gerenciamento</title>
@@ -31,10 +33,14 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
 
     <!-- BOOTSTRAP ICONS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <!-- JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
+
 <body class="d-flex flex-column">
     <div class="d-flex justify-content-end m-3">
-         <span class="me-3 text-secondary" onclick="logout()">
+        <span class="me-3 text-secondary" onclick="logout()">
             Olá Fulano
         </span>
         <button class="btn btn-sm btn-danger">
@@ -78,7 +84,7 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
             </div>
         </div>
     </div>
-<!-- 
+    <!-- 
 <h3>Criar novo usuário (uso temporário)</h3>
 <form method="POST">
     <label for="novo_usuario">Usuário:</label><br>
@@ -114,9 +120,31 @@ if (isset($_POST['criar_usuario'])) {
 ?>
 -->
     <script>
-        function logout(){
+        function logout() {
             window.location.href = ".controller/logout.php";
         }
+
+        function gerenciarPlataformas() {
+            $.ajax({
+                url: "controller/backend.php",
+                type: 'POST',
+                data: {
+                    action: 'gerenciarPlataformas'
+                },
+                dataType: 'json',
+                success: function(retorno) {
+                    console.log(retorno);
+                },
+                error: function(xhr, status, error) {
+                    console.error("Erro AJAX:", xhr.responseText || error);
+                }
+            });
+        }
+
+        $(document).ready(function() {
+            gerenciarPlataformas();
+        })
     </script>
 </body>
+
 </html>
