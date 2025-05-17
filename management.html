@@ -1,25 +1,5 @@
-<?php
-session_start();
-
-if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
-    header("Location: login.html");
-    exit;
-}
-
-// require_once 'controller/connection.php'; // Descomente se precisar de conexão com o banco
-?>
-
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <title>Área de Gerenciamento</title>
-    <link rel="shortcut icon" href="./images/ouro.png" type="image/x-icon">
-    
-    <!-- BOOTSTRAP -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-DQvkBjpPgn7RC31MCQoOeC9TI2kdqa4+BSgNMNj8v77fdC77Kj5zpWFTJaaAoMbC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-YUe2LzesAfftltw+PEaao2tjU/QATaW/rOitAq67e0CT0Zi2VVRL0oC4+gAaeBKu" crossorigin="anonymous"></script>
-</head>
 <head>
     <meta charset="UTF-8">
     <title>Área de Gerenciamento</title>
@@ -74,41 +54,6 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
             </div>
         </div>
     </div>
-<!-- 
-<h3>Criar novo usuário (uso temporário)</h3>
-<form method="POST">
-    <label for="novo_usuario">Usuário:</label><br>
-    <input type="text" id="novo_usuario" name="novo_usuario" required><br><br>
-
-    <label for="nova_senha">Senha:</label><br>
-    <input type="password" id="nova_senha" name="nova_senha" required><br><br>
-
-    <button type="submit" name="criar_usuario">Criar Usuário</button>
-</form>
-
-<?php
-/*
-if (isset($_POST['criar_usuario'])) {
-    require_once 'controller/connection.php';
-
-    $usuario = trim($_POST['novo_usuario']);
-    $senha = password_hash($_POST['nova_senha'], PASSWORD_DEFAULT);
-
-    $stmt = $conn->prepare("INSERT INTO usuarios (usuario, senha) VALUES (?, ?)");
-    $stmt->bind_param("ss", $usuario, $senha);
-
-    if ($stmt->execute()) {
-        echo "<p>Usuário criado com sucesso!</p>";
-    } else {
-        echo "<p>Erro ao criar usuário: " . $stmt->error . "</p>";
-    }
-
-    $stmt->close();
-    $conn->close();
-}
-*/
-?>
--->
     <script>
         function logout(){
             window.location.href = ".controller/logout.php";
