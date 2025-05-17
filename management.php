@@ -1,65 +1,86 @@
 <?php
-// session_start();
-// if (!isset($_SESSION['usuario_id'])) {
-//     header("Location: login.html");
-//     exit;
-// }
-?>
-<?php
-require_once 'controller/connection.php';
+session_start();
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['criarUsuario'])) {
-    $usuario = trim($_POST['usuario']);
-    $senha = $_POST['senha'];
-
-    if (empty($usuario) || empty($senha)) {
-        $mensagem = "Usuário e senha são obrigatórios.";
-    } else {
-        $stmt = $conn->prepare("SELECT id FROM usuarios WHERE usuario = ?");
-        $stmt->bind_param("s", $usuario);
-        $stmt->execute();
-        $stmt->store_result();
-
-        if ($stmt->num_rows > 0) {
-            $mensagem = "Usuário já existe.";
-        } else {
-            $stmt->close();
-            $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
-
-            $stmt = $conn->prepare("INSERT INTO usuarios (usuario, senha_hash) VALUES (?, ?)");
-            $stmt->bind_param("ss", $usuario, $senha_hash);
-
-            if ($stmt->execute()) {
-                $mensagem = "Usuário criado com sucesso.";
-            } else {
-                $mensagem = "Erro ao criar usuário.";
-            }
-        }
-
-        $stmt->close();
-    }
+// Protege a página: só usuários autenticados podem acessar
+if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
+    header("Location: login.html");
+    exit;
 }
+
+// require_once 'controller/connection.php'; // Descomente se precisar de conexão com o banco
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MGMT</title>
+    <title>Área de Gerenciamento</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 2rem; }
+        .logout-btn {
+            display: inline-block;
+            margin-bottom: 1rem;
+            padding: 0.5rem 1rem;
+            background-color: #c00;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        form {
+            margin-top: 2rem;
+            padding: 1rem;
+            background-color: #f4f4f4;
+            border-radius: 8px;
+        }
+    </style>
 </head>
 <body>
-    <h2>Criar primeiro usuário</h2>
-    <?php if (isset($mensagem)) echo "<p><strong>$mensagem</strong></p>"; ?>
 
-    <form method="POST">
-    <label for="usuario">Usuário:</label><br>
-    <input type="text" id="usuario" name="usuario" required><br><br>
+<h1>Bem-vindo à Área de Gerenciamento</h1>
 
-    <label for="senha">Senha:</label><br>
-    <input type="password" id="senha" name="senha" required><br><br>
+<a href="controller/logout.php" class="logout-btn">Sair</a>
 
-    <button type="submit" name="criarUsuario">Criar usuário</button>
-    </form>
+<hr>
+
+<h2>Painel de Administração</h2>
+<p>Aqui você pode adicionar as funcionalidades do sistema.</p>
+
+<!-- 
+<h3>Criar novo usuário (uso temporário)</h3>
+<form method="POST">
+    <label for="novo_usuario">Usuário:</label><br>
+    <input type="text" id="novo_usuario" name="novo_usuario" required><br><br>
+
+    <label for="nova_senha">Senha:</label><br>
+    <input type="password" id="nova_senha" name="nova_senha" required><br><br>
+
+    <button type="submit" name="criar_usuario">Criar Usuário</button>
+</form>
+
+<?php
+/*
+if (isset($_POST['criar_usuario'])) {
+    require_once 'controller/connection.php';
+
+    $usuario = trim($_POST['novo_usuario']);
+    $senha = password_hash($_POST['nova_senha'], PASSWORD_DEFAULT);
+
+    $stmt = $conn->prepare("INSERT INTO usuarios (usuario, senha) VALUES (?, ?)");
+    $stmt->bind_param("ss", $usuario, $senha);
+
+    if ($stmt->execute()) {
+        echo "<p>Usuário criado com sucesso!</p>";
+    } else {
+        echo "<p>Erro ao criar usuário: " . $stmt->error . "</p>";
+    }
+
+    $stmt->close();
+    $conn->close();
+}
+*/
+?>
+-->
+
 </body>
 </html>
