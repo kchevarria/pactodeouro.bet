@@ -1,9 +1,10 @@
 # Impede acesso direto a arquivos PHP do navegador
 <FilesMatch "\.(php)$">
-    Order deny,allow
-    Deny from all
+    Order allow,deny
+    Allow from all
 </FilesMatch>
 
-<Files "backend.php">
-    Allow from all
+<Files "connection.php">
+    Order deny,allow
+    Deny from all
 </Files>
