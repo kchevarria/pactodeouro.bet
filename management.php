@@ -54,7 +54,7 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
             <div class="card-header">Plataformas</div>
             <div class="card-body">
                 <table class="table table-striped table-hover">
-                    <tbody>
+                    <tbody id="plataformas">
                         <tr>
                             <td>top</td>
                             <td>nome</td>
@@ -134,6 +134,7 @@ if (isset($_POST['criar_usuario'])) {
                 dataType: 'json',
                 success: function(retorno) {
                     console.log(retorno);
+                    $("#plataformas").html(retorno.dados);
                 },
                 error: function(xhr, status, error) {
                     console.error("Erro AJAX:", xhr.responseText || error);

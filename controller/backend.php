@@ -46,16 +46,21 @@ function listarPlataformas($conn) {
 
 
 function gerenciarPlataformas($conn) {
+    $retorno = [];
     $sql = "SELECT id, nome, ordem, link, logo FROM plataformas ORDER BY ordem, nome";
     $result = $conn->query($sql);
 
     if (!$result) {
-        echo json_encode(['status' => 'erro', 'mensagem' => 'Erro ao consultar plataformas.']);
+        $retorno['success'] = 0;
+        $retorno['msg'] = "Erro ao consultar plataformas.";
+        // echo json_encode(['status' => 'erro', 'mensagem' => 'Erro ao consultar plataformas.']);
         return;
     }
 
     if ($result->num_rows === 0) {
-        echo json_encode(['status' => 'vazio', 'mensagem' => 'Não há plataformas cadastradas.']);
+        $retorno['success'] = 0;
+        $retorno['msg'] = "Não há plataformas cadastradas.";
+        // echo json_encode(['status' => 'vazio', 'mensagem' => 'Não há plataformas cadastradas.']);
         return;
     }
 
@@ -64,5 +69,8 @@ function gerenciarPlataformas($conn) {
         $plataformas[] = $row;
     }
 
-    echo json_encode(['status' => 'ok', 'dados' => $plataformas]);
+    $retorno['success'] = 0;
+    $retorno['msg'] = "Dados obtidos.";
+    $retorno['dados'] = $plataformas;
+    // echo json_encode(['status' => 'ok', 'dados' => $plataformas]);
 }
