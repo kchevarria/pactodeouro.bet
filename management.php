@@ -271,8 +271,8 @@ if (isset($_POST['criar_usuario'])) {
                 success: function(retorno) {
                     if (retorno.success === 1) {
                         alert(retorno.msg);
-                        $("#cadastroPlataforma").modal("hide");
                         gerenciarPlataformas();
+                        $("#cadastroPlataforma").modal("hide");
                     } else {
                         alert(retorno.msg);
                     }
