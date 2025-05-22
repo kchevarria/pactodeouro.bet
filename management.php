@@ -230,7 +230,6 @@ if (isset($_POST['criar_usuario'])) {
                 $("#logo").val('');
                 $("#logo").next(".form-text").remove();
                 $("#cadastroPlataforma").modal("show");
-                $("#nome").focus();
             } else {
                 $.ajax({
                     url: backend,
