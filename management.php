@@ -41,7 +41,7 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
         <hr>
         <div class="card w-75">
             <div class="card-header">Plataformas</div>
-            <div class="card-body">
+            <div class="card-body overflow-auto" style="max-height: 70vh;">
                 <table class="table table-striped table-hover m-0" id="table_plataformas">
                     <thead class="text-center">
                         <th>Nome</th>
