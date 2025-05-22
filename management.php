@@ -221,11 +221,10 @@ if (isset($_POST['criar_usuario'])) {
         }
 
         function editarPlataforma(id) {
-            console.log(id);
-
+            
             if (id === null || id === '') {
                 $("#id").val('');
-                $("#nome").val('');
+                $("#nome").focus().val('');
                 $("#ordem").val('');
                 $("#link").val('');
                 $("#logo").val('');
