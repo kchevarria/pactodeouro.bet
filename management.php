@@ -48,6 +48,7 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
                         <th>Ordem</th>
                         <th>Link</th>
                         <th>Logo</th>
+                        <th>Edição</th>
                     </thead>
                     <tbody id="plataformas">
 
@@ -158,6 +159,7 @@ if (isset($_POST['criar_usuario'])) {
                                         <td>${plataforma.ordem}</td>
                                         <td><a href="${plataforma.link}" target="_blank">${plataforma.link}</a></td>
                                         <td><img src="${plataforma.logo}" alt="Logo" style="height: 30px;"></td>
+                                        <td><i class="bi bi-pencil-square"></i></td>
                                     </tr>
                                 `;
                             });
