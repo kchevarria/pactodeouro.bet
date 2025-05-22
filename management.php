@@ -39,11 +39,11 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
     <div class="container d-flex flex-column justify-content-center align-items-center">
         <div class="h2">Gerenciamento</div>
         <hr>
-        <div class="card">
+        <div class="card w-75">
             <div class="card-header">Plataformas</div>
             <div class="card-body">
-                <table class="table table-striped table-hover">
-                    <thead>
+                <table class="table table-striped table-hover m-0" id="table_plataformas">
+                    <thead class="text-center">
                         <th>Nome</th>
                         <th>Ordem</th>
                         <th>Link</th>
@@ -57,7 +57,7 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
             </div>
             <div class="card-footer d-flex justify-content-end align-items-center">
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cadastroPlataforma">
+                <button type="button" class="btn btn-primary" onclick="editarPlataforma(null)">
                     <i class="bi bi-plus-lg pe-2"></i> Nova plataforma
                 </button>
             </div>
@@ -69,30 +69,31 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="cadastroPlataformaLabel">Cadastro de Plataforma</h1>
+                    <h1 class="modal-title fs-5" id="cadastroPlataformaLabel">Cadastro de plataforma</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body d-flex flex-column gap-2">
                     <div>
+                        <input type="hidden" id="id">
                         <label for="nome">Nome:</label>
-                        <input type="text" name="" id="nome" class="form-control">
+                        <input type="text" id="nome" class="form-control">
                     </div>
                     <div>
                         <label for="ordem">Ordem:</label>
-                        <input type="number" name="" id="ordem" class="form-control">
+                        <input type="number" id="ordem" class="form-control">
                     </div>
                     <div>
                         <label for="link">Link:</label>
-                        <input type="text" name="" id="link" class="form-control">
+                        <input type="text" id="link" class="form-control">
                     </div>
                     <div>
                         <label for="logo">Logo:</label>
-                        <input type="file" name="" id="logo" class="form-control">
+                        <input type="file" id="logo" class="form-control">
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Descartar</button>
-                    <button type="button" class="btn btn-primary">Salvar</button>
+                    <button type="button" class="btn btn-primary" onclick="salvarPlataforma()">Salvar</button>
                 </div>
             </div>
         </div>
@@ -155,18 +156,37 @@ if (isset($_POST['criar_usuario'])) {
                             retorno.dados.forEach(function(plataforma, index) {
                                 html += `
                                     <tr>
-                                        <td>${plataforma.nome}</td>
-                                        <td>${plataforma.ordem}</td>
-                                        <td><a href="${plataforma.link}" target="_blank">${plataforma.link}</a></td>
-                                        <td><img src="${plataforma.logo}" alt="Logo" style="height: 30px;"></td>
-                                        <td><i class="bi bi-pencil-square"></i></td>
+                                        <td>
+                                            ${plataforma.nome}
+                                        </td>
+                                        <td>
+                                            ${plataforma.ordem}
+                                        </td>
+                                        <td>
+                                            <a href="${plataforma.link}" target="_blank">
+                                                ${plataforma.link}
+                                            </a>
+                                        </td>
+                                        <td class="text-center">
+                                            <img src="../images/${plataforma.logo}" alt="Logo" style="height: 30px;">
+                                        </td>
+                                        <td class="d-flex justify-content-center align-items-center">
+                                            <button class="btn btn-sm btn-warning" onclick="editarPlataforma(${plataforma.id})">
+                                                <i class="bi bi-pencil-square"></i>
+                                            </button>
+                                        </td>
                                     </tr>
                                 `;
                             });
                             $("#plataformas").html(html);
                             break;
                         default:
-                            $("#plataformas").html(retorno.msg);
+                            // $("#table_plataformas").html(retorno.msg);
+                            $("#table_plataformas").html(`
+                            <div class="alert alert-warning text-center m-0" role="alert">
+                                ${retorno.msg}
+                            </div>
+                            `);
                             break;
                     }
                     // $("#plataformas").html(retorno.dados);
@@ -178,8 +198,91 @@ if (isset($_POST['criar_usuario'])) {
         }
 
         function editarPlataforma(id) {
+            console.log(id);
 
+            if (id === null || id === '') {
+                $("#id").val('');
+                $("#nome").val('');
+                $("#ordem").val('');
+                $("#link").val('');
+                $("#logo").val('');
+                $("#logo").next(".form-text").remove();
+                $("#cadastroPlataforma").modal("show");
+            } else {
+                $.ajax({
+                    url: backend,
+                    type: 'POST',
+                    data: {
+                        action: 'retornaPlataforma',
+                        id: id
+                    },
+                    dataType: 'json',
+                    success: function(retorno) {
+                        console.log(retorno);
+
+                        if (retorno.success === 1) {
+                            const dados = retorno.dados;
+
+                            $("#id").val(dados.id);
+                            $("#nome").val(dados.nome);
+                            $("#ordem").val(dados.ordem);
+                            $("#link").val(dados.link);
+
+                            // input type="file" não pode receber valor via JavaScript
+                            $("#logo").val('');
+                            $("#logo").next(".form-text").remove(); // limpa mensagens anteriores
+                            if (dados.logo) {
+                                $("#logo").after(`<div class="form-text">Logo atual: ${dados.logo}</div>`);
+                            }
+
+                            $("#cadastroPlataforma").modal("show");
+                        } else {
+                            alert(retorno.msg);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("Erro AJAX:", xhr.responseText || error);
+                    }
+                });
+            }
         }
+
+
+        function salvarPlataforma() {
+            const formData = new FormData();
+            formData.append("action", "salvarPlataforma");
+            formData.append("id", $("#id").val());
+            formData.append("nome", $("#nome").val());
+            formData.append("ordem", $("#ordem").val());
+            formData.append("link", $("#link").val());
+
+            const logoInput = $("#logo")[0];
+            if (logoInput.files.length > 0) {
+                formData.append("logo", logoInput.files[0]);
+            }
+
+            $.ajax({
+                url: backend,
+                type: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+                dataType: "json",
+                success: function(retorno) {
+                    if (retorno.success === 1) {
+                        alert(retorno.msg);
+                        $("#cadastroPlataforma").modal("hide");
+                        gerenciarPlataformas();
+                    } else {
+                        alert(retorno.msg);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error("Erro AJAX:", xhr.responseText || error);
+                }
+            });
+        }
+
 
         $(document).ready(function() {
             gerenciarPlataformas();
