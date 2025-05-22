@@ -225,7 +225,7 @@ if (isset($_POST['criar_usuario'])) {
             if (id === null || id === '') {
                 $("#nome").focus();
                 $("#id").val('');
-                $("#nome")..val('');
+                $("#nome").val('');
                 $("#ordem").val('');
                 $("#link").val('');
                 $("#logo").val('');
