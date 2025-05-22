@@ -223,7 +223,6 @@ if (isset($_POST['criar_usuario'])) {
         function editarPlataforma(id) {
             
             if (id === null || id === '') {
-                $("#nome").focus();
                 $("#id").val('');
                 $("#nome").val('');
                 $("#ordem").val('');
@@ -231,6 +230,7 @@ if (isset($_POST['criar_usuario'])) {
                 $("#logo").val('');
                 $("#logo").next(".form-text").remove();
                 $("#cadastroPlataforma").modal("show");
+                $("#nome").focus();
             } else {
                 $.ajax({
                     url: backend,
