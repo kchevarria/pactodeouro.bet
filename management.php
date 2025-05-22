@@ -93,7 +93,7 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Descartar</button>
-                    <button type="button" class="btn btn-primary" onclick="salvarPlataforma()">Salvar</button>
+                    <button type="button" id="btnSalvar" class="btn btn-primary" onclick="salvarPlataforma()">Salvar</button>
                 </div>
             </div>
         </div>
@@ -249,6 +249,7 @@ if (isset($_POST['criar_usuario'])) {
 
 
         function salvarPlataforma() {
+            $("#btnSalvar").addClass("disabled");
             const formData = new FormData();
             formData.append("action", "salvarPlataforma");
             formData.append("id", $("#id").val());
@@ -272,6 +273,7 @@ if (isset($_POST['criar_usuario'])) {
                     if (retorno.success === 1) {
                         alert(retorno.msg);
                         gerenciarPlataformas();
+                        $("#btnSalvar").removeClass("disabled");
                         $("#cadastroPlataforma").modal("hide");
                     } else {
                         alert(retorno.msg);
@@ -282,7 +284,6 @@ if (isset($_POST['criar_usuario'])) {
                 }
             });
         }
-
 
         $(document).ready(function() {
             gerenciarPlataformas();
