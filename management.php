@@ -45,7 +45,7 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
     }
 </style>
 
-<body class="d-flex flex-column">
+<body class="d-flex flex-column bg-success-subtle">
     <div class="d-flex justify-content-end align-items-center m-3">
         <span id="user" class="me-3 text-secondary">
             Olá <?php echo $_SESSION['usuario_nome'] ?>
@@ -56,9 +56,8 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
     </div>
     <div class="container d-flex flex-column justify-content-center align-items-center">
         <div class="h2">Gerenciamento</div>
-        <hr>
-        <div class="card w-75">
-            <div class="card-header">Plataformas</div>
+        <div class="card w-75 shadow">
+            <div class="card-header h5">Plataformas</div>
             <div class="card-body overflow-auto" style="max-height: 70vh;">
                 <table class="table table-striped table-hover m-0" id="table_plataformas">
                     <thead class="text-center">
