@@ -26,6 +26,24 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
     <!-- JQUERY -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
+<style>
+    #spin i {
+        font-size: 3rem;
+        /* aumenta o tamanho do ícone */
+        animation: girar 2s linear infinite;
+        /* animação contínua girando */
+    }
+
+    @keyframes girar {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
+    }
+</style>
 
 <body class="d-flex flex-column">
     <div class="d-flex justify-content-end align-items-center m-3">
@@ -89,6 +107,11 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
                     <div>
                         <label for="logo">Logo:</label>
                         <input type="file" id="logo" class="form-control">
+                    </div>
+                    <div class="row d-none" id="spin">
+                        <span class="d-flex justify-content-center">
+                            <i class="bi bi-arrow-repeat text-secondary"></i>
+                        </span>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -250,6 +273,7 @@ if (isset($_POST['criar_usuario'])) {
 
         function salvarPlataforma() {
             $("#btnSalvar").addClass("disabled");
+            $("#spin").removeClass("d-none");
             const formData = new FormData();
             formData.append("action", "salvarPlataforma");
             formData.append("id", $("#id").val());
@@ -271,6 +295,7 @@ if (isset($_POST['criar_usuario'])) {
                 dataType: "json",
                 success: function(retorno) {
                     if (retorno.success === 1) {
+                        $("#spin").addClass("d-none");
                         alert(retorno.msg);
                         gerenciarPlataformas();
                         $("#btnSalvar").removeClass("disabled");
