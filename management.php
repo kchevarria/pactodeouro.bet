@@ -43,31 +43,14 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
             <div class="card-header">Plataformas</div>
             <div class="card-body">
                 <table class="table table-striped table-hover">
+                    <thead>
+                        <th>Nome</th>
+                        <th>Ordem</th>
+                        <th>Link</th>
+                        <th>Logo</th>
+                    </thead>
                     <tbody id="plataformas">
-                        <tr>
-                            <td>top</td>
-                            <td>nome</td>
-                            <td>link</td>
-                            <td><i class="bi bi-pencil-square"></i></td>
-                        </tr>
-                        <tr>
-                            <td>top</td>
-                            <td>nome</td>
-                            <td>link</td>
-                            <td>edição</td>
-                        </tr>
-                        <tr>
-                            <td>top</td>
-                            <td>nome</td>
-                            <td>link</td>
-                            <td>edição</td>
-                        </tr>
-                        <tr>
-                            <td>top</td>
-                            <td>nome</td>
-                            <td>link</td>
-                            <td>edição</td>
-                        </tr>
+
                     </tbody>
                 </table>
             </div>
@@ -149,13 +132,15 @@ if (isset($_POST['criar_usuario'])) {
 ?>
 -->
     <script>
+        const backend = "controller/backend.php";
+
         function logout() {
             window.location.href = "./controller/logout.php";
         }
 
         function gerenciarPlataformas() {
             $.ajax({
-                url: "controller/backend.php",
+                url: backend,
                 type: 'POST',
                 data: {
                     action: 'gerenciarPlataformas'
@@ -165,7 +150,18 @@ if (isset($_POST['criar_usuario'])) {
                     console.log(retorno);
                     switch (retorno.success) {
                         case 1:
-                            $("#plataformas").html(retorno.dados);
+                            let html = "";
+                            retorno.dados.forEach(function(plataforma, index) {
+                                html += `
+                                    <tr>
+                                        <td>${plataforma.nome}</td>
+                                        <td>${plataforma.ordem}</td>
+                                        <td><a href="${plataforma.link}" target="_blank">${plataforma.link}</a></td>
+                                        <td><img src="${plataforma.logo}" alt="Logo" style="height: 30px;"></td>
+                                    </tr>
+                                `;
+                            });
+                            $("#plataformas").html(html);
                             break;
                         default:
                             $("#plataformas").html(retorno.msg);
@@ -177,6 +173,10 @@ if (isset($_POST['criar_usuario'])) {
                     console.error("Erro AJAX:", xhr.responseText || error);
                 }
             });
+        }
+
+        function editarPlataforma(id) {
+
         }
 
         $(document).ready(function() {
