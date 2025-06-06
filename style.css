@@ -1,5 +1,6 @@
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 100px;
 }
 
 body {
@@ -43,12 +44,25 @@ footer a {
   font-size: 14pt;
   transition: color 0.3s;
 }
-
+/* 
 section {
   scroll-margin-top: 100px !important;
+} */
+
+section::before {
+  content: "";
+  display: block;
+  height: 80px; /* Altura do menu sticky */
+  margin-top: -80px;
+  pointer-events: none;
+  visibility: hidden;
 }
 
-#menuSticky {
+.row.flex-nowrap {
+  flex-wrap: nowrap !important;
+}
+
+/* #menuSticky {
   background: #111;
   padding: 20px 0;
   text-align: center;
@@ -57,6 +71,19 @@ section {
   z-index: 999;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
   transition: background-color 0.9s ease;
+  font-size: 14pt;
+} */
+
+#menuSticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  background: #111;
+  padding: 20px 0;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
   font-size: 14pt;
 }
 
@@ -100,11 +127,33 @@ section {
   background-color: rgba(255, 255, 255, 0.5);
 }
 
+.horizontal-scroll-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  gap: 30px;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 20px;
+}
+
+.top-section {
+  /* flex: 0 0 auto; */
+  min-width: 80vw; /* ocupa uma tela inteira */
+  scroll-snap-align: start;
+}
+
+.top-section .row {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .col-custom-5 {
   margin: 30px 50px 30px 50px;
   padding: 0px;
   width: 9%;
   background-color: transparent;
+  flex: 0 0 auto;
 }
 
 @media (max-width: 767.98px) {

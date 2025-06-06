@@ -31,9 +31,9 @@ function listarPlataformas() {
 
       Object.keys(grupos).sort((a,b) => a-b).forEach(grupo => {
         htmlCompleto += `
-          <section class="my-5 mx-3" id="top${grupo}">
+          <section class="top-section" id="top${grupo}">
             <p class="card h1 text-center fw-bold">TOP ${grupo}</p>
-            <div class="row g-3 justify-content-center">
+            <div class="row g-3 justify-content-center flex-wrap">
         `;
 
         grupos[grupo].forEach(p => {
