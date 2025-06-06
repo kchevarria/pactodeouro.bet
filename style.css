@@ -7,7 +7,7 @@ body {
   background-position: center;
   background-size: cover;
   font-family: 'Bebas Neue', sans-serif;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 
 #cabecalho {
@@ -62,7 +62,7 @@ section::before {
   flex-wrap: nowrap !important;
 }
 
-/* #menuSticky {
+#menuSticky {
   background: #111;
   padding: 20px 0;
   text-align: center;
@@ -72,9 +72,17 @@ section::before {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
   transition: background-color 0.9s ease;
   font-size: 14pt;
-} */
+}
 
-#menuSticky {
+@media (max-width: 768px) {
+  #menuSticky {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+  }
+}
+
+/* #menuSticky {
   position: fixed;
   top: 0;
   left: 0;
@@ -85,7 +93,7 @@ section::before {
   text-align: center;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
   font-size: 14pt;
-}
+} */
 
 #menuSticky a {
   color: #f2f2f2;
