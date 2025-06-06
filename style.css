@@ -112,6 +112,11 @@ section {
     margin: 15px 15px 0 15px;
     width: 30%;
   }
+
+  main{
+    background-image: none;
+    background-color: black;
+  }
 }
 
 .whatsapp-fixo {
