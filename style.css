@@ -147,7 +147,8 @@ section::before {
 
 .top-section {
   /* flex: 0 0 auto; */
-  min-width: 80vw; /* ocupa uma tela inteira */
+  /* min-width: 80vw; ocupa uma tela inteira */
+  flex: 0 0 80vw;
   scroll-snap-align: start;
 }
 
