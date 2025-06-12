@@ -1,5 +1,6 @@
 $(document).ready(function () {
   listarPlataformas();
+  $("#termos").modal("show");
 });
 
 function listarPlataformas() {
