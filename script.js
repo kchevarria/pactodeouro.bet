@@ -32,7 +32,7 @@ function listarPlataformas() {
 
       Object.keys(grupos).sort((a,b) => a-b).forEach(grupo => {
         htmlCompleto += `
-        <section class="top-section mb-5" id="top${grupo}">
+        <section class="top-section" id="top${grupo}">
           <p class="card h1 text-center fw-bold">TOP ${grupo}</p>
           <div class="icon-scroll-wrapper d-flex">
         `;
@@ -40,7 +40,7 @@ function listarPlataformas() {
         grupos[grupo].forEach(p => {
           htmlCompleto += `
             <div class="col-custom-5">
-              <a href="${p.link}" target="_blank" class="link card text-center">
+              <a href="${p.link}" target="_blank" class="link text-center">
                 <img src="./images/${p.logo}" alt="${p.nome}">
               </a>
             </div>
