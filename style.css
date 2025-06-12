@@ -151,8 +151,8 @@ section::before {
 
 @media (max-width: 767.98px) {
   .col-custom-5 {
-    margin: 15px 15px 0 15px;
-    width: 30%;
+    margin: 20px 10px 20px 10px;
+    width: 50%;
   }
 
   main{
