@@ -31,7 +31,7 @@ function listarPlataformas() {
 
       Object.keys(grupos).sort((a,b) => a-b).forEach(grupo => {
         htmlCompleto += `
-        <section class="top-section mb-5" id="top${grupo}">
+        <section class="top-section" id="top${grupo}">
           <p class="card h1 text-center fw-bold">TOP ${grupo}</p>
           <div class="icon-scroll-wrapper d-flex">
         `;
