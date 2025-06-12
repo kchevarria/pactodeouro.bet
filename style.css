@@ -145,6 +145,8 @@ section::before {
   height: auto;
   border-radius: 10px;
   padding: 0px;
+  border: solid;
+  border-color: gold;
 }
 
 @media (max-width: 767.98px) {
