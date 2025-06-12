@@ -44,6 +44,7 @@ footer a {
   font-size: 14pt;
   transition: color 0.3s;
 }
+
 /* 
 section {
   scroll-margin-top: 100px !important;
@@ -52,7 +53,8 @@ section {
 section::before {
   content: "";
   display: block;
-  height: 80px; /* Altura do menu sticky */
+  height: 80px;
+  /* Altura do menu sticky */
   margin-top: -80px;
   pointer-events: none;
   visibility: hidden;
@@ -114,7 +116,8 @@ section::before {
 }
 
 .top-section {
-  flex: 0 0 100vw; /* ocupa 100% da largura da viewport */
+  flex: 0 0 100vw;
+  /* ocupa 100% da largura da viewport */
   scroll-snap-align: start;
   padding: 30px;
   box-sizing: border-box;
@@ -155,9 +158,14 @@ section::before {
     width: 50%;
   }
 
-  main{
+  main {
     background-image: none;
     background-color: black;
+  }
+
+  .link:hover img {
+    transform: none;
+    filter: none;
   }
 }
 
@@ -190,9 +198,11 @@ section::before {
   0% {
     box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
   }
+
   70% {
     box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
   }
+
   100% {
     box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
   }
@@ -233,7 +243,8 @@ section::before {
   margin: 0;
   width: 150px;
   box-sizing: border-box;
-  overflow: hidden; /* isso força os itens a respeitarem o border-radius */
+  overflow: hidden;
+  /* isso força os itens a respeitarem o border-radius */
 }
 
 .dropdown-item {
@@ -252,4 +263,3 @@ section::before {
 #termos .modal-content {
   font-size: 14pt;
 }
-
