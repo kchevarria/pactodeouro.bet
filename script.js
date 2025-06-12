@@ -64,5 +64,5 @@ function listarPlataformas() {
 }
 
 function discordar(){
-  window.location.href = "www.google.com";
+  window.location.href = "https://www.google.com";
 }
