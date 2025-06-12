@@ -63,3 +63,6 @@ function listarPlataformas() {
   });
 }
 
+function discordar(){
+  window.location.href = "www.google.com";
+}
