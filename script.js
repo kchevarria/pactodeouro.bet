@@ -40,8 +40,8 @@ function listarPlataformas() {
         grupos[grupo].forEach(p => {
           htmlCompleto += `
             <div class="col-custom-5">
-              <a href="${p.link}" target="_blank" class="link text-center">
-                <img src="./images/${p.logo}" alt="${p.nome}">
+              <a href="${p.link}" target="_blank" class="link card text-center">
+                <img src="./images/${p.logo}" alt="${p.nome}" class="card">
               </a>
             </div>
           `;
