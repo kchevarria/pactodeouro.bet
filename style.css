@@ -281,5 +281,6 @@ section::before {
 }
 
 #termos .modal-content {
+  z-index: 9999;
   font-size: 14pt;
 }
