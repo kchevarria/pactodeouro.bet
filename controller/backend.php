@@ -12,17 +12,27 @@ if (!isset($_POST['action'])) {
 
 switch ($_POST['action']) {
     case 'listarPlataformas':
-        listarPlataformas($conn);
+        listarPlataformas($conn); // acesso público para o site
         break;
+
     case 'gerenciarPlataformas':
-        gerenciarPlataformas($conn);
-        break;
     case 'retornaPlataforma':
-        retornaPlataforma($conn);
-        break;
     case 'salvarPlataforma':
-        salvarPlataforma($conn);
+        session_start();
+        if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
+            echo json_encode(['success' => 0, 'msg' => 'Acesso não autorizado.']);
+            exit;
+        }
+
+        if ($_POST['action'] === 'gerenciarPlataformas') {
+            gerenciarPlataformas($conn);
+        } elseif ($_POST['action'] === 'retornaPlataforma') {
+            retornaPlataforma($conn);
+        } elseif ($_POST['action'] === 'salvarPlataforma') {
+            salvarPlataforma($conn);
+        }
         break;
+
     default:
         echo json_encode(['status' => 'erro', 'mensagem' => 'Ação inválida.']);
         break;
